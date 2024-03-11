@@ -15,26 +15,37 @@ class SignUp(Resource):
 
     def post(self):
 
-        print(users_collection.find_one({"username": "teklumezgebo"}))
+        if users_collection.find_one({"username": request.get_json()["username"]}):
 
-        # users_collection.insert_one({
-        #     "username": request.get_json()["username"],
-        #     "email": request.get_json()["email"],
-        #     "password": request.get_json()["password"]
-        # })
+            return make_response({
+                "error": "Username is taken."
+            }, 400)
+        
+        if users_collection.find_one({"email": request.get_json()["email"]}):
 
-        # response = make_response({
-        #     "username":request.get_json()["username"],
-        #     "email": request.get_json()["email"],
-        #     "password": request.get_json()["password"]
-        # }, 201)
+            return make_response({
+                "error": "Email is taken."
+            }, 400)
 
-        # return response
+        users_collection.insert_one({
+            "username": request.get_json()["username"],
+            "email": request.get_json()["email"],
+            "password": request.get_json()["password"]
+        })
+
+        return make_response({
+            "message": "User created.",
+            "user": {
+                "username":request.get_json()["username"],
+                "email": request.get_json()["email"],
+                "password": request.get_json()["password"]
+                }
+        }, 201)
 
 api.add_resource(SignUp, "/signup")
 
 class Login(Resource):
-    
+
     def post(self):
         pass
 
