@@ -1,10 +1,10 @@
-from flask import Flask, make_response
+from flask import Flask, request, make_response
 from pymongo import MongoClient
 from flask_restful import Api, Resource
-from bson.objectid import ObjectId
 from config import database_user_password
 
 app = Flask(__name__)
+app.json.compact = False
 
 api = Api(app)
 
@@ -14,12 +14,15 @@ db = cluster["TheJournal"]
 
 users = db["Users"]
 
-class User(Resource):
-    
-    def get(self):
+class SignUp(Resource):
+
+    def post(self):
         pass
 
-api.add_resource(User, '/')
+class Login(Resource):
+    
+    def post(self):
+        pass
 
 if __name__ == '__main__':
     app.run(port=5555,  debug=True)
