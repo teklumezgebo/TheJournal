@@ -1,11 +1,11 @@
 from flask import Flask
 from pymongo import MongoClient
 from flask_restful import Api, Resource
-from config import password
+from config import database_user_password
 
 app = Flask(__name__)
 
-cluster = MongoClient(f"mongodb+srv://teklumezgebo:{password}@thejournal.fiahiep.mongodb.net/?retryWrites=true&w=majority&appName=TheJournal")
+cluster = MongoClient(f"mongodb+srv://teklumezgebo:{database_user_password}@thejournal.fiahiep.mongodb.net/?retryWrites=true&w=majority&appName=TheJournal")
 
 db = cluster["TheJournal"]
 
