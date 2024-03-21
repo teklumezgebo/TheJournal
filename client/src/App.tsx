@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import Landing from './pages/Landing';
+import './assets/App.css';
 
 function App() {
   return (
     <div>
-
+      <Landing /> 
     </div>
   );
 }
