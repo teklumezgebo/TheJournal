@@ -1,0 +1,46 @@
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        margin-top: .80rem;
+        
+        span {
+            color: $text-color;
+            font-size: 1.12rem;        
+        }
+        
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        margin-left: 6rem;
+        color: $text-color;
+
+        p {
+            &:first-of-type {
+                font-size: 4rem;
+                width: 24rem;
+            }
+
+            &:nth-of-type(2) {
+                font-size: 2rem;
+                width: 24rem;
+                margin-top: -4rem;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 6rem;
+        }
+    }
+
+    footer {
+        align-self: center;
+    }
+}
