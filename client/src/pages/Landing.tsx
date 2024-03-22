@@ -6,7 +6,7 @@ export default function Landing(){
     return (
             <body className="landing">
                 <header>
-                    <span>The Journal: An app dedicated to giving people a space to document their thoughts and emotions.</span>
+                    <span>The Journal</span>
                 </header>
                 <main>
                     <article>
@@ -18,10 +18,15 @@ export default function Landing(){
                         <Button text="Make an account"/>
                         <Button text="Login"/>
                     </div>
+                    <article>
+                        <p>
+                             
+                        </p>
+                    </article>
                 </main>
                 <footer>
                     <a href="https://www.linkedin.com/in/teklumezgebo/">Created by Teklu Mezgebo</a>
-                    <a href="https://github.com/teklumezgebo/TheJournal">Souce Code</a>
+                    <a href="https://github.com/teklumezgebo/TheJournal">Source Code</a>
                 </footer>
             </body>
     )

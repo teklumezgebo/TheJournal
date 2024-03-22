@@ -9,7 +9,8 @@
         
         span {
             color: $text-color;
-            font-size: 1.4rem;        
+            font-size: 1.4rem;
+            font-style: italic;
         }
         
     }
@@ -17,17 +18,18 @@
     main {
         display: flex;
         flex-direction: column;
-        margin-left: 6rem;
         color: $text-color;
 
         article {
+            align-self: center;
             display: flex;
-            justify-content: space-around;
-            align-items: center;
+            justify-content: center;
+            width: 100vw;
 
             p {
                 font-size: 4rem;
-                width: 30rem;
+                width: 38rem;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
                 text-align: center;
             }
         }
