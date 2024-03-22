@@ -19,9 +19,7 @@ export default function Landing(){
                         <Button text="Login"/>
                     </div>
                     <article>
-                        <p>
-                             
-                        </p>
+                        <p>Writing about one's thoughts has been proven to be therapeutic and beneficial, offering individuals an outlet for self-expression, reflection, and personal growth, ultimately fostering a deeper understanding of oneself and promoting emotional well-being.</p>
                     </article>
                 </main>
                 <footer>
