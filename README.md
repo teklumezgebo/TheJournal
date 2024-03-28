@@ -9,4 +9,3 @@
 ##### Server: Python, Flask, Flask-Restful, Flask-BCrypt, PyMongo
 
 ##### Database: MongoDB
-
