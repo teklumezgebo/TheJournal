@@ -2,7 +2,7 @@ from flask import Flask, request, session, make_response
 from flask_restful import Api, Resource
 from flask_bcrypt import Bcrypt
 from pymongo import MongoClient
-from config import database_user_password, secret_key
+from config import database_username, database_password, secret_key
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = secret_key
@@ -10,16 +10,13 @@ bcrypt = Bcrypt(app)
 app.json.compact = False
 api = Api(app)
 
-client = MongoClient(f"mongodb+srv://teklumezgebo:{database_user_password}@thejournal.fiahiep.mongodb.net/?retryWrites=true&w=majority&appName=TheJournal")
+client = MongoClient(f"mongodb+srv://{database_username}:{database_password}@thejournal.fiahiep.mongodb.net/?retryWrites=true&w=majority&appName=TheJournal")
 db = client["TheJournal"]
 users = db["Users"]
-
-
 
 class SignUp(Resource):
 
     def post(self):
-
         form = request.get_json()
         first_name = form.get("first_name")
         last_name = form.get("last_name")
@@ -42,7 +39,8 @@ class SignUp(Resource):
             "last_name": last_name, 
             "email": email, 
             "username": username, 
-            "password": hashed_password
+            "password": hashed_password,
+            "journals": []
         })
 
         session["user_id"] = str(users.find_one({"username": username})["_id"])
@@ -54,7 +52,6 @@ api.add_resource(SignUp, "/signup")
 class Login(Resource):
 
     def post(self):
-
         form = request.get_json()
         username = form.get("username")
         password = form.get("password")
